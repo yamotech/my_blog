@@ -3,10 +3,11 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def new
-    # インスタンス変数にPostの空のインスタンスを
+    # インスタンス変数にPostの空のインスタンスを生成
     @post = Post.new
   end
 
