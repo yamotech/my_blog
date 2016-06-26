@@ -22,9 +22,18 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    # URLからidを収録して今ある更新前のデータを取得してインスタンス変数にセット
+    @post = Post.find(params[:id])
+    # インスタンス変数をupdate（ストロングパラメータから収録した値が引数）
+    @post.update(post_params)
+    # showにリダイレクト
+    # redirect_to "/posts/#{@post.id}"
+    # redirect_to post_path(@post)
+    redirect_to @post
   end
 
   def destroy
