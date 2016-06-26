@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     @q = Post.order(created_at: :desc).ransack(params[:q])
     @posts = @q.result.page(params[:page]).per(2)
 
-    @new_posts = Post.order(created_at: :desc).limit(5)
+    @new_posts = Post.find_newest_article
   end
 
   def show
