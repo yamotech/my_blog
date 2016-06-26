@@ -39,6 +39,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    # 既存のデータを検索
+    @post = Post.find(params[:id])
+    # destroy
+    @post.destroy
+    # redirect_to indexのビュー
+    # redirect_to "/posts"
+    redirect_to @post
   end
 
   private
